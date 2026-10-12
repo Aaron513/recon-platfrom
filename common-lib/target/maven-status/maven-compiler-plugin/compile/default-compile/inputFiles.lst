@@ -2,6 +2,7 @@ C:\Users\AARON\OneDrive\Desktop\recon-platform\common-lib\src\main\java\com\reco
 C:\Users\AARON\OneDrive\Desktop\recon-platform\common-lib\src\main\java\com\reconplatform\common\dto\ReprocessBatchCommand.java
 C:\Users\AARON\OneDrive\Desktop\recon-platform\common-lib\src\main\java\com\reconplatform\common\dto\TransactionDTO.java
 C:\Users\AARON\OneDrive\Desktop\recon-platform\common-lib\src\main\java\com\reconplatform\common\enums\CommandType.java
+C:\Users\AARON\OneDrive\Desktop\recon-platform\common-lib\src\main\java\com\reconplatform\common\enums\MismatchReason.java
 C:\Users\AARON\OneDrive\Desktop\recon-platform\common-lib\src\main\java\com\reconplatform\common\enums\ReviewStatus.java
 C:\Users\AARON\OneDrive\Desktop\recon-platform\common-lib\src\main\java\com\reconplatform\common\enums\TransactionStatus.java
 C:\Users\AARON\OneDrive\Desktop\recon-platform\common-lib\src\main\java\com\reconplatform\common\error\AppException.java

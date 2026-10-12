@@ -1,5 +1,6 @@
 package com.reconplatform.common.dto;
 
+import com.reconplatform.common.enums.MismatchReason;
 import com.reconplatform.common.enums.TransactionStatus;
 
 import java.math.BigDecimal;
@@ -19,6 +20,7 @@ public class TransactionDTO {
     private String riskCountry;     // filled in by reconciliation-service
     private TransactionStatus status;  // enum: INGESTED, ENRICHED, FLAGGED, RECONCILED
     private String errorCode;       // nullable
+    private MismatchReason flagReason;
 
     public String getTransactionId() {
         return transactionId;
@@ -115,4 +117,13 @@ public class TransactionDTO {
     public void setErrorCode(String errorCode) {
         this.errorCode = errorCode;
     }
+
+    public MismatchReason getFlagReason() {
+        return flagReason;
+    }
+
+    public void setFlagReason(MismatchReason flagReason) {
+        this.flagReason = flagReason;
+    }
+
 }
