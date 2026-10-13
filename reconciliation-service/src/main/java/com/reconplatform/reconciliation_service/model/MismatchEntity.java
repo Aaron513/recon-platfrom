@@ -19,8 +19,9 @@ public class MismatchEntity {
     @Column(name = "transaction_id", nullable = false, length = 36)
     private String transactionId;
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 30)
-    private String reason;
+    private MismatchReason reason;
 
     @Column(name = "expected_balance", precision = 15, scale = 2)
     private BigDecimal expectedBalance;
@@ -53,11 +54,11 @@ public class MismatchEntity {
         this.transactionId = transactionId;
     }
 
-    public String getReason() {
+    public MismatchReason getReason() {
         return reason;
     }
 
-    public void setReason(String reason) {
+    public void setReason(MismatchReason reason) {
         this.reason = reason;
     }
 
