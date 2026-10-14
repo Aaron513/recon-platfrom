@@ -9,7 +9,7 @@
         <module>common-lib</module>
         <module>ingestion-service</module>
         <module>reconciliation-service</module>
-<!--        <module>review-service</module>-->
+        <module>review-service</module>
     </modules>
 
     <properties>
