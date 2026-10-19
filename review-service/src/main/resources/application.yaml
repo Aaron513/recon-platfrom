@@ -1,6 +1,10 @@
 server:
   port: 8083
 
+jwt:
+  secret: "BzHTVldnTK2TTmAped5TdKTkX4g+lyfqho7vLoxF9OU="
+  expiration-minutes: 60
+
 spring:
   application:
     name: review-service

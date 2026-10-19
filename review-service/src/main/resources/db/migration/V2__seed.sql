@@ -1,0 +1,1 @@
+INSERT INTO app_user (user_id, username, password_hash, role) VALUES ('76c3057c-63f9-4c7c-b2e7-b44e065fdf09', 'reviewer1', 'BzHTVldnTK2TTmAped5TdKTkX4g+lyfqho7vLoxF9OU=', 'REVIEWER');
