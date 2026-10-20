@@ -2,12 +2,14 @@ server:
   port: 8081
 
 spring:
+  config:
+    import: "optional:file:.env[.properties],optional:file:../.env[.properties]"
   application:
     name: ingestion-service
   datasource:
     url: jdbc:mysql://localhost:3309/ingestion_db
-    username: root
-    password: root@123
+    username: ${DB_USERNAME:CHANGE_ME}
+    password: ${DB_PASSWORD:CHANGE_ME}
   jpa:
     hibernate:
       ddl-auto: validate      # Flyway owns the schema, Hibernate just validates

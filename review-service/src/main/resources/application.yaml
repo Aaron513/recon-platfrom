@@ -2,16 +2,18 @@ server:
   port: 8083
 
 jwt:
-  secret: "BzHTVldnTK2TTmAped5TdKTkX4g+lyfqho7vLoxF9OU="
+  secret: ${JWT_SECRET:CHANGE_ME_BASE64_32_BYTE_KEY}
   expiration-minutes: 60
 
 spring:
+  config:
+    import: "optional:file:.env[.properties],optional:file:../.env[.properties]"
   application:
     name: review-service
   datasource:
     url: jdbc:mysql://localhost:3309/review_db
-    username: root
-    password: root@123
+    username: ${DB_USERNAME:CHANGE_ME}
+    password: ${DB_PASSWORD:CHANGE_ME}
   jpa:
     hibernate:
       ddl-auto: validate
@@ -19,6 +21,10 @@ spring:
       hibernate.jdbc.time_zone: UTC
   flyway:
     enabled: true
+    placeholders:
+      reviewer_user_id: ${REVIEWER_USER_ID:CHANGE_ME}
+      reviewer_username: ${REVIEWER_USERNAME:CHANGE_ME}
+      reviewer_password_hash: ${REVIEWER_PASSWORD_HASH:CHANGE_ME}
   kafka:
     bootstrap-servers: localhost:9092
     consumer:
@@ -35,7 +41,7 @@ spring:
         spring.json.trusted.packages: com.reconplatform.common.dto
   activemq:
     broker-url: tcp://localhost:61616
-    user: admin
-    password: admin
+    user: ${ACTIVEMQ_USERNAME:CHANGE_ME}
+    password: ${ACTIVEMQ_PASSWORD:CHANGE_ME}
   jms:
     pub-sub-domain: false   # queues, matching the point-to-point command design
