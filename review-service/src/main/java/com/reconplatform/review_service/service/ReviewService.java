@@ -1,10 +1,12 @@
 package com.reconplatform.review_service.service;
 
+import com.reconplatform.common.dto.ReviewDecisionCommand;
 import com.reconplatform.common.enums.ReviewStatus;
 import com.reconplatform.common.error.AppException;
 import com.reconplatform.common.error.ErrorCode;
 import com.reconplatform.review_service.model.FlaggedReviewEntity;
 import com.reconplatform.review_service.repository.FlaggedReviewRepository;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,9 +17,11 @@ import java.util.List;
 public class ReviewService {
 
     private final FlaggedReviewRepository repository;
+    private final ApplicationEventPublisher eventPublisher;
 
-    public ReviewService(FlaggedReviewRepository repository) {
+    public ReviewService(FlaggedReviewRepository repository, ApplicationEventPublisher eventPublisher) {
         this.repository = repository;
+        this.eventPublisher = eventPublisher;
     }
 
     public List<ReviewResponse> findPending() {
@@ -40,7 +44,8 @@ public class ReviewService {
         review.setReviewedAt(LocalDateTime.now());
         FlaggedReviewEntity saved = repository.save(review);
 
-        // ActiveMQ "manual-review-resolved" command goes here in the next step
+        eventPublisher.publishEvent(new ReviewResolvedEvent(new ReviewDecisionCommand(
+                saved.getTransactionId(), decision, reviewer, System.currentTimeMillis())));
 
         return ReviewResponse.from(saved);
     }

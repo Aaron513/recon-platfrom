@@ -1,6 +1,10 @@
 <project>
     <modelVersion>4.0.0</modelVersion>
 
+    <properties>
+        <maven.compiler.release>17</maven.compiler.release>
+    </properties>
+
     <parent>
         <groupId>com.reconplatform</groupId>
         <artifactId>recon-platform-parent</artifactId>

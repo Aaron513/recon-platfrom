@@ -1,11 +1,12 @@
 com\reconplatform\common\enums\ReviewStatus.class
 com\reconplatform\common\enums\MismatchReason.class
 com\reconplatform\common\dto\ManualReviewResolvedCommand.class
-com\reconplatform\common\messaging\KafkaTopics.class
 com\reconplatform\common\dto\ReprocessBatchCommand.class
 com\reconplatform\common\enums\CommandType.class
+com\reconplatform\common\messaging\ActiveMqQueues.class
+com\reconplatform\common\dto\ReviewDecisionCommand.class
+com\reconplatform\common\messaging\KafkaTopics.class
 com\reconplatform\common\enums\TransactionStatus.class
 com\reconplatform\common\dto\TransactionDTO.class
-com\reconplatform\common\messaging\ActiveMqQueues.class
 com\reconplatform\common\error\AppException.class
 com\reconplatform\common\error\ErrorCode.class
